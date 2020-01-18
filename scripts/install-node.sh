@@ -224,7 +224,7 @@ _rpcPassword=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 32 ; echo '')
 _nodeIpAddress=$(wget -qO- 4.icanhazip.com)
 
 # Change the SSH port
-sed -i "s/[#]\{0,1\}[ ]\{0,1\}Port [0-9]\{2,\}/Port ${_sshPort}/g" /etc/ssh/sshd_config
+# sed -i "s/[#]\{0,1\}[ ]\{0,1\}Port [0-9]\{2,\}/Port ${_sshPort}/g" /etc/ssh/sshd_config
 
 # Firewall security measures
 # apt install ufw -y

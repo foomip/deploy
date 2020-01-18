@@ -318,10 +318,10 @@ EOF
 bash <( wget -qO- ${_parametersPath} ) /home/${_daemon_user}
 
 # Start the daemon
-echo "Starting ${_daemon}....please wait"
-systemctl daemon-reload
-systemctl start stashd
-systemctl enable stashd
+# echo "Starting ${_daemon}....please wait"
+# systemctl daemon-reload
+# systemctl start stashd
+# systemctl enable stashd
 #sleep 3
 
 # Install masternode
@@ -358,14 +358,14 @@ if [ "$_masternode" == "1" ]; then
   popd
 
   # Create a cronjob for making sure stashd runs after reboot
-  if ! crontab -l 2>/dev/null | grep "#node maintenance scripts"; then
-    (crontab -l; echo "") | crontab - # work around for 'first time crontab error'
-  fi
+#   if ! crontab -l 2>/dev/null | grep "#node maintenance scripts"; then
+#     (crontab -l; echo "") | crontab - # work around for 'first time crontab error'
+#   fi
 
-  # Create a cronjob for sentinel
-  if ! crontab -l | grep "${_configPath}/sentinel && ./venv/bin/python bin/sentinel.py 2>&1"; then
-    (crontab -l; echo "* * * * * cd ${_configPath}/sentinel && ./venv/bin/python bin/sentinel.py 2>&1 >> sentinel-cron.log") | crontab -
-  fi
+#   # Create a cronjob for sentinel
+#   if ! crontab -l | grep "${_configPath}/sentinel && ./venv/bin/python bin/sentinel.py 2>&1"; then
+#     (crontab -l; echo "* * * * * cd ${_configPath}/sentinel && ./venv/bin/python bin/sentinel.py 2>&1 >> sentinel-cron.log") | crontab -
+#   fi
 fi
 
 # Update folder permissionss

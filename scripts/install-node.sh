@@ -227,16 +227,16 @@ _nodeIpAddress=$(wget -qO- 4.icanhazip.com)
 sed -i "s/[#]\{0,1\}[ ]\{0,1\}Port [0-9]\{2,\}/Port ${_sshPort}/g" /etc/ssh/sshd_config
 
 # Firewall security measures
-apt install ufw -y
-ufw disable
-ufw allow ${_port}
-ufw allow ${_sshPort}/tcp
-ufw limit ${_sshPort}/tcp
-ufw allow ${_rpcPort}
-ufw logging on
-ufw default deny incoming
-ufw default allow outgoing
-ufw --force enable
+# apt install ufw -y
+# ufw disable
+# ufw allow ${_port}
+# ufw allow ${_sshPort}/tcp
+# ufw limit ${_sshPort}/tcp
+# ufw allow ${_rpcPort}
+# ufw logging on
+# ufw default deny incoming
+# ufw default allow outgoing
+# ufw --force enable
 
 # Make a new directory for stash daemon
 mkdir -p ${_configPath}

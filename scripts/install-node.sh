@@ -136,12 +136,12 @@ SSH port:   ${_sshPort}
 
 EOF
 
-printf  "Continue with install? (y/n) "
+# printf  "Continue with install? (y/n) "
 
-read -t 60 REPLY
-if [ ${REPLY} != "y" ]; then
-  exit 1
-fi
+# read -t 60 REPLY
+# if [ ${REPLY} != "y" ]; then
+#   exit 1
+# fi
 
 # Check for previous installation
 

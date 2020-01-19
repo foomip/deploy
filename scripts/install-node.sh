@@ -146,12 +146,12 @@ EOF
 # Check for previous installation
 
 if [ -d ${_configPath} ]; then
-  echo -n "Previous installation detected..."
-  printf  "continue with overwrite? (y/n) "
-  read -t 60 REPLY
-  if [ ${REPLY} != "y" ]; then
-    exit 1
-  fi
+#   echo -n "Previous installation detected..."
+#   printf  "continue with overwrite? (y/n) "
+#   read -t 60 REPLY
+#   if [ ${REPLY} != "y" ]; then
+#     exit 1
+#   fi
 
   if pgrep "${_daemon}" > /dev/null
   then

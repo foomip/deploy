@@ -145,7 +145,7 @@ EOF
 
 # Check for previous installation
 
-if [ -d ${_configPath} ]; then
+# if [ -d ${_configPath} ]; then
 #   echo -n "Previous installation detected..."
 #   printf  "continue with overwrite? (y/n) "
 #   read -t 60 REPLY
@@ -153,36 +153,36 @@ if [ -d ${_configPath} ]; then
 #     exit 1
 #   fi
 
-  if pgrep "${_daemon}" > /dev/null
-  then
-    echo "Stopping ${_daemon}..."
-    killall ${_daemon} > /dev/null
-    sleep 3
-  fi
+#   if pgrep "${_daemon}" > /dev/null
+#   then
+#     echo "Stopping ${_daemon}..."
+#     killall ${_daemon} > /dev/null
+#     sleep 3
+#   fi
 
-  # cleanup config folder for backup
+#   # cleanup config folder for backup
 
-  echo "cleaning config folders"
-  rm -rf ${_configPath}/backups/
-  rm -rf ${_configPath}/blocks/
-  rm -rf ${_configPath}/blocks/
-  rm -rf ${_configPath}/chainstate/
-  rm -rf ${_configPath}/database/
+#   echo "cleaning config folders"
+#   rm -rf ${_configPath}/backups/
+#   rm -rf ${_configPath}/blocks/
+#   rm -rf ${_configPath}/blocks/
+#   rm -rf ${_configPath}/chainstate/
+#   rm -rf ${_configPath}/database/
 
-  rm -rf ${_configPath}/testnet3/backups/
-  rm -rf ${_configPath}/testnet3/blocks/
-  rm -rf ${_configPath}/testnet3/blocks/
-  rm -rf ${_configPath}/testnet3/chainstate/
-  rm -rf ${_configPath}/testnet3/database/
+#   rm -rf ${_configPath}/testnet3/backups/
+#   rm -rf ${_configPath}/testnet3/blocks/
+#   rm -rf ${_configPath}/testnet3/blocks/
+#   rm -rf ${_configPath}/testnet3/chainstate/
+#   rm -rf ${_configPath}/testnet3/database/
 
-  echo "creating config backups"
-  unixTime=$( date +%s )
-  backupDir=${HOME}/backups
-  mkdir -p $backupDir
-  tar -czvf ${backupDir}/backup_${unixTime}.tar.gz ${_configPath}
-  echo "removing  ${_configPath}..."
-  rm -rf ${_configPath}
-fi
+#   echo "creating config backups"
+#   unixTime=$( date +%s )
+#   backupDir=${HOME}/backups
+#   mkdir -p $backupDir
+#   tar -czvf ${backupDir}/backup_${unixTime}.tar.gz ${_configPath}
+#   echo "removing  ${_configPath}..."
+#   rm -rf ${_configPath}
+# fi
 
 adduser --disabled-password --gecos "" $_daemon_user || true
 usermod -aG sudo $_daemon_user || true

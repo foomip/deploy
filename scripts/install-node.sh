@@ -330,9 +330,9 @@ if [ "$_masternode" == "1" ]; then
   # Install sentinel
   apt-get install -y git python-virtualenv
   apt-get install -y virtualenv
-  pushd /home/$_daemon_user
+  cd /home/$_daemon_user
   git clone ${_sentinelPath}
-  pushd sentinel
+  cd sentinel
   virtualenv venv
   venv/bin/pip install -r requirements.txt
 
@@ -354,8 +354,7 @@ if [ "$_masternode" == "1" ]; then
   echo "externalip=${_nodeIpAddress}:${_port}" >> ${_configFile}
   echo "masternodeprivkey=${_nodePrivateKey}" >> ${_configFile}
 
-  popd
-  popd
+  cd /home/$_daemon_user
 
   # Create a cronjob for making sure stashd runs after reboot
 #   if ! crontab -l 2>/dev/null | grep "#node maintenance scripts"; then

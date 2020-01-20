@@ -374,8 +374,8 @@ chown -R $_daemon_user:$_daemon_user /home/$_daemon_user
 alias cli="$_cli"
 grep -q -F "alias watch='watch '" ~/.bashrc || echo "alias watch='watch '" >> ~/.bashrc
 grep -q -F "alias cli='$_cli'" ~/.bashrc || echo "alias cli='$_cli'" >> ~/.bashrc
-grep -q -F "alias restart='systemctl restart stashd.service'" ~/.bashrc || echo "alias restart='systemctl restart stashd.service'" >> ~/.bashrc
-grep -q -F "alias stop='systemctl stop stashd.service'" ~/.bashrc || echo "alias stop='systemctl stop stashd.service'" >> ~/.bashrc
+# grep -q -F "alias restart='systemctl restart stashd.service'" ~/.bashrc || echo "alias restart='systemctl restart stashd.service'" >> ~/.bashrc
+# grep -q -F "alias stop='systemctl stop stashd.service'" ~/.bashrc || echo "alias stop='systemctl stop stashd.service'" >> ~/.bashrc
 
 # Install finished, display info
 privateKey=$( cat $_configFile | grep masternodeprivkey | sed "s/masternodeprivkey=//g" )
@@ -416,5 +416,5 @@ To check masternode sync status type:
 > cli mnsync status
 EOF
 # restart as maternode
-systemctl restart stashd.service
+# systemctl restart stashd.service
 fi

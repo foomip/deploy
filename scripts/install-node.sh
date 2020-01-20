@@ -349,7 +349,7 @@ if [ "$_masternode" == "1" ]; then
   sleep 20
 
   # Get a new privatekey
-  _nodePrivateKey=$( ${_startCli} masternode genkey )
+  _nodePrivateKey=building
   echo "masternode=${_masternode}" >> ${_configFile}
   echo "externalip=${_nodeIpAddress}:${_port}" >> ${_configFile}
   echo "masternodeprivkey=${_nodePrivateKey}" >> ${_configFile}

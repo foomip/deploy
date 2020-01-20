@@ -330,9 +330,9 @@ if [ "$_masternode" == "1" ]; then
   # Install sentinel
   apt-get install -y git python-virtualenv
   apt-get install -y virtualenv
-  cd /home/$_daemon_user
+  pushd /home/$_daemon_user
   git clone ${_sentinelPath}
-  cd sentinel
+  pushd sentinel
   virtualenv venv
   venv/bin/pip install -r requirements.txt
 
